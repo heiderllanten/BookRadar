@@ -42,14 +42,15 @@ public class BooksController : Controller
             if (!_cache.TryGetValue(cacheKey, out _))
             {
                 // Guardar en DB
-                _db.HistorialBusquedas.Add(new SearchHistory
-                {
-                    Autor = author,
-                    Titulo = r.Title,
-                    AnioPublicacion = r.FirstPublishYear,
-                    Editorial = r.Publisher,
-                    FechaConsulta = now
-                });
+                await _db.Database.ExecuteSqlRawAsync(
+                    "EXEC sp_InsertHistorial @p0, @p1, @p2, @p3",
+                    new object[]
+                    {
+                        author,
+                        r.Title,
+                        r.FirstPublishYear, // Puede ser null y EF lo mapea correctamente
+                        r.Publisher
+                    });
 
                 // Guardar en cache por 1 minuto
                 _cache.Set(cacheKey, true, TimeSpan.FromMinutes(1));

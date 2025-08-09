@@ -1,0 +1,27 @@
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userprefs
+
+# Visual Studio cache/options
+.vs/
+
+# Rider cache
+.idea/
+
+# Logs
+*.log
+
+# Dependency directories
+node_modules/
+
+# Publish output
+wwwroot/dist
+
+# Secrets
+appsettings.Development.json
