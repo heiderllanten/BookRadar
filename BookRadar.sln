@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookRadar", "BookRadar.csproj", "{8C48C7A0-2D53-4902-8BF9-0496B0F24E40}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C48C7A0-2D53-4902-8BF9-0496B0F24E40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C48C7A0-2D53-4902-8BF9-0496B0F24E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C48C7A0-2D53-4902-8BF9-0496B0F24E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C48C7A0-2D53-4902-8BF9-0496B0F24E40}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3BBF8A4B-75C5-4248-B783-07ABB4F06CAD}
+	EndGlobalSection
+EndGlobal

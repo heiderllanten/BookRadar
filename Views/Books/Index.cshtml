@@ -1,0 +1,51 @@
+﻿@using BookRadar.Controllers
+@model BooksIndexViewModel
+@{
+    ViewData["Title"] = "Buscar libros por autor";
+    var results = ViewBag.Results as List<BookResult> ?? new List<BookResult>();
+}
+
+<h1>Buscar libros por autor</h1>
+
+<form method="get" asp-controller="Books" asp-action="Index" class="mb-4">
+    <div class="input-group">
+        <input type="text" name="author" class="form-control" placeholder="Ej: Gabriel Garcia Marquez" value="@Model.Author" required />
+        <button class="btn btn-primary" type="submit">Buscar</button>
+    </div>
+</form>
+
+<h3>Resultados (API)</h3>
+<table class="table table-striped">
+    <thead>
+        <tr><th>Título</th><th>Año</th><th>Editorial</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var r in results)
+        {
+            <tr>
+                <td>@r.Title</td>
+                <td>@(r.FirstPublishYear?.ToString() ?? "-")</td>
+                <td>@(r.Publisher ?? "-")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Historial de búsquedas</h3>
+<table class="table table-sm">
+    <thead>
+        <tr><th>Autor</th><th>Título</th><th>Año</th><th>Editorial</th><th>Fecha</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var h in Model.History)
+        {
+            <tr>
+                <td>@h.Autor</td>
+                <td>@h.Titulo</td>
+                <td>@(h.AnioPublicacion?.ToString() ?? "-")</td>
+                <td>@(h.Editorial ?? "-")</td>
+                <td>@h.FechaConsulta.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss")</td>
+            </tr>
+        }
+    </tbody>
+</table>

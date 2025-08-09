@@ -1,0 +1,23 @@
+﻿@model List<BookRadar.Models.SearchHistory>
+@{
+    ViewData["Title"] = "Historial";
+}
+
+<h1>Historial completo</h1>
+<table class="table table-striped">
+    <thead>
+        <tr><th>Autor</th><th>Título</th><th>Año</th><th>Editorial</th><th>Fecha</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var h in Model)
+        {
+            <tr>
+                <td>@h.Autor</td>
+                <td>@h.Titulo</td>
+                <td>@(h.AnioPublicacion?.ToString() ?? "-")</td>
+                <td>@(h.Editorial ?? "-")</td>
+                <td>@h.FechaConsulta.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss")</td>
+            </tr>
+        }
+    </tbody>
+</table>
